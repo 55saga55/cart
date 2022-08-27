@@ -5,7 +5,7 @@ import { useDispatch} from 'react-redux';
 
 import { DisplayProductdata } from "./Action/index"
 
-import { product } from "./Reducer/productData";
+// import { product } from "./Reducer/productData";
 
 // import { Displaydata } from "./constant/index";
 
@@ -25,19 +25,9 @@ export default function Product() {
             )
     })
     
-// console.log(DisplayProductdata.type);
-// console.log(myDispatch)
-
-
-
-    return (
-        <div>{
-        //    data?.map((x)=>{
-        //         return (
-        //             <div>{x.item}</div>
-        //         )
-        //     })
-            }</div>
+    
+ return (
+        <div></div>
     )
 }
 

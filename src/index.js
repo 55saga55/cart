@@ -7,16 +7,19 @@ import { Provider } from 'react-redux'
 import store from './store';
 import Product from './Product';
 import ProductItem from './ProductItem';
+import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Provider  store={store}>
+    
+    {/* <Provider  store={store}> */}
 
-      <Product/>
-      <ProductItem/>
+      {/* <Product/>
+      <ProductItem/> */}
+      <App />
 
-    </Provider>
+    {/* </Provider> */}
     
   </React.StrictMode>
 );
