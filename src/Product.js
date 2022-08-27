@@ -1,29 +1,33 @@
 
-import React, { useEffect } from 'react';
-
-import { useDispatch} from 'react-redux';
-
-import { DisplayProductdata } from "./Action/index"
-
-// import { product } from "./Reducer/productData";
+import React ,{useEffect} from 'react';
+import { useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux';
+import axios from "axios";
+import { selectProduct } from "./Reducer/productData";
 
 // import { Displaydata } from "./constant/index";
+import {   SelectedProductdata } from "./Action/index"
+import { useParams } from 'react-router-dom';
 
-import axios from "axios"
 
 
 export default function Product() {
 
     const myDispatch = useDispatch();
+  const{productId}= useParams()
 
+    const data = useSelector(y => y.selectProduct)
+    console.log(data)
     useEffect(() => {
-        axios.get("https://fakestoreapi.com/products")
-            .then(y => {
-                myDispatch(DisplayProductdata(y.data))
-            }
+      axios.get(`https://fakestoreapi.com/products/${productId}`)
+          .then(y => {
+              myDispatch(SelectedProductdata(y.data))
+          }
+  
+          )
+  })
 
-            )
-    })
+  
     
     
  return (

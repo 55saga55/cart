@@ -1,4 +1,4 @@
-import { Displaydata , AddtoCart } from "../constant"
+import { Displaydata , SelectedProduct } from "../constant"
 // import DisplayProductdata from "../Action/index"
 
 
@@ -8,32 +8,47 @@ const initialState = {
     currentSelectItem : {}
 }
 
-const product = (state = initialState, { type, payload }) => {
+export const product = (state = initialState, { type, payload }) => {
   switch (type) {
 
   case Displaydata:
     return { ...state, items: payload }
     
-    case AddtoCart:
+    // case AddtoCart:
 
-        let myobj = [];
+    //     let myobj = [];
       
-        if(state.cart.length === 0)
-        {
+    //     if(state.cart.length === 0)
+    //     {
       
-          myobj.push(payload);
-        }
-        // else
-        // {
-        //   state.cart
+    //       myobj.push(payload);
+    //     }
+    //     // else
+    //     // {
+    //     //   state.cart
       
-        // }
+    //     // }
       
-        return {...state, currentSelectItem: payload}
+    //     return {...state, currentSelectItem: payload}
 
   default:
     return state
   }
 }
 
-export default product;
+// const initialState = {}
+
+export const selectProduct = (state = {}, { type, payload }) => {
+  switch (type) {
+
+  case SelectedProduct:
+    return { ...state, ...payload }
+
+  default:
+    return state
+  }
+}
+
+
+// export default product;
+// export default selectProduct;

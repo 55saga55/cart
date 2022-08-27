@@ -17,11 +17,11 @@ function App() {
     <Provider store={store}>
     <BrowserRouter >
 
-    <Link to="productitem">ProductItem</Link>
+    {/* <Link to="/product">Product</Link> */}
     <Routes>
       
-      <Route path="/productitem" element={<ProductItem />}/>
-      <Route path='/' element={ <Product />}/>
+      <Route path="/" element={<ProductItem />}/>
+      <Route path='/product/:id' element={ <Product />}/>
     
     </Routes>
     </BrowserRouter>

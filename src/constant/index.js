@@ -1,4 +1,4 @@
 
 export const  Displaydata = "Displaydata";
 
-export const AddtoCart = "AddtoCart"
+export const SelectedProduct = "SelectedProduct"
