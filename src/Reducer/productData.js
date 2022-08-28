@@ -5,7 +5,7 @@ import { Displaydata , SelectedProduct } from "../constant"
 const initialState = {
     items : [],
     cart : [],
-    currentSelectItem : {}
+    currentSelectItem : []
 }
 
 export const product = (state = initialState, { type, payload }) => {

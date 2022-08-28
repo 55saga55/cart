@@ -4,7 +4,8 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Link
+  Link,
+
 } from "react-router-dom";
 import ProductItem from './ProductItem';
 import Product from './Product';
@@ -18,12 +19,12 @@ function App() {
     <BrowserRouter >
 
     {/* <Link to="/product">Product</Link> */}
-    <Routes>
-      
-      <Route path="/" element={<ProductItem />}/>
-      <Route path='/product/:id' element={ <Product />}/>
     
-    </Routes>
+      <Routes>
+      <Route path="/" element={<ProductItem />}/>
+      <Route path='/product/:productId' element={ <Product />}/>
+      </Routes>
+    
     </BrowserRouter>
     </Provider>
     </>
