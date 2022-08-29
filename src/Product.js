@@ -8,7 +8,9 @@ import axios from "axios";
 // import { Displaydata } from "./constant/index";
 import { SelectedProductdata } from "./Action/index"
 import { useParams } from 'react-router-dom';
-import index from "./index.css"
+import index from "./index.css";
+
+import {AddToCartData} from "./Action"
 
 
 
@@ -20,6 +22,12 @@ export default function Product() {
 
   const data = useSelector(y => y.selectProduct)
   console.log(data)
+  
+  const data1 = useSelector(y => y.AddProduct.cart)
+  console.log(data1)
+
+  // const abc = useDispatch();
+
   useEffect(() => {
     axios.get(`https://fakestoreapi.com/products/${productId}`)
       .then(y => {
@@ -27,14 +35,19 @@ export default function Product() {
       }
 
       )
-  }, [SelectedProductdata])
+  }, [productId])
 
-  const { image, title, price, category, description } = data
+  const { image, title, price, category, description,} = data
 
+  const myAddToCart = (data)=> {
+
+    myDispatch(AddToCartData(data))
+  }
 
 
 
   return (
+
     <div className="container">
       <div className="card">
         <div className="container-fliud">
@@ -76,7 +89,9 @@ export default function Product() {
                 <span className="color blue"></span>
               </h5>
               <div className="action my-3">
-                <button className="add-to-cart btn btn-default" type="button">add to cart</button>
+                <button className="add-to-cart btn btn-default" type="button" onClick={()=> {
+                  myAddToCart(data);
+              }}>add to cart</button>
                 <button className="like btn btn-default mx-3" type="button"><span className="fa fa-heart"></span></button>
               </div>
             </div>

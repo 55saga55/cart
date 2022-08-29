@@ -1,4 +1,4 @@
-import { Displaydata , SelectedProduct } from "../constant"
+import { AddToCart, Displaydata , SelectedProduct } from "../constant"
 // import DisplayProductdata from "../Action/index"
 
 
@@ -14,23 +14,7 @@ export const product = (state = initialState, { type, payload }) => {
   case Displaydata:
     return { ...state, items: payload }
     
-    // case AddtoCart:
-
-    //     let myobj = [];
-      
-    //     if(state.cart.length === 0)
-    //     {
-      
-    //       myobj.push(payload);
-    //     }
-    //     // else
-    //     // {
-    //     //   state.cart
-      
-    //     // }
-      
-    //     return {...state, currentSelectItem: payload}
-
+    
   default:
     return state
   }
@@ -50,5 +34,55 @@ export const selectProduct = (state = {}, { type, payload }) => {
 }
 
 
-// export default product;
-// export default selectProduct;
+export const AddProduct = (state = initialState , {type, payload}) =>{
+
+  switch (type) {
+
+    case AddToCart:
+  
+       let myCart =  [...state.cart];
+  
+      if(myCart.length === 0)
+      {
+          myCart.push({...payload, count :1});
+      }
+      else
+      {
+        var checkProductExist =  myCart.filter((data,index)=> {
+  
+          return data.id == payload.id;
+        })
+          if(checkProductExist.length > 0)
+          {
+              var myArray = myCart.map((elemment)=>{
+  
+                if(elemment.id == payload.id)
+                {
+                  return {...elemment, count : elemment.count + 1 }
+                }
+                else
+                {
+                  return elemment;
+                }
+  
+              });
+  
+              return {...state, cart : myArray};
+  
+          }
+          else
+          {
+            myCart.push({...payload, count :1});
+  
+          }
+  
+      }
+  
+      return {...state, cart : myCart };
+  
+  
+    
+    default:
+      return state
+    }
+}

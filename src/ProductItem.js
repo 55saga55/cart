@@ -40,7 +40,7 @@ export default function ProductItem() {
                     <span class="product-catagory">{x.category}</span>
                     <h4><a href="/">{x.title}</a></h4>
 
-                    <p>{x.description}</p>
+                    <p>{x.description}</p>  
 
                     <div class="product-bottom-details">
                       <div class="product-price">${x.price}</div>

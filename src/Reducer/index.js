@@ -1,11 +1,12 @@
 
 import {combineReducers} from "redux";
 
-import {product ,selectProduct} from "../Reducer/productData";
+import {product ,selectProduct,AddProduct} from "../Reducer/productData";
 
 
 const mainReducer = combineReducers({
     product:product,
-    selectProduct:selectProduct
+    selectProduct:selectProduct,
+    AddProduct : AddProduct
 })
 export default mainReducer
