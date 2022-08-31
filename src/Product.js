@@ -23,7 +23,7 @@ export default function Product() {
   const data = useSelector(y => y.selectProduct)
   console.log(data)
   
-  const data1 = useSelector(y => y.AddProduct.cart)
+  const data1 = useSelector(y => y.AddToCart.cart)
   console.log(data1)
 
   // const abc = useDispatch();
@@ -101,7 +101,6 @@ export default function Product() {
     </div>
   )
 }
-
 
 
 
